@@ -1,7 +1,6 @@
+// src/api/git.js
 import axios from 'axios';
 
-const git = axios.create({
-  baseURL: 'https://api.github.com/users/daienelima/'
+export default axios.create({
+  baseURL: "https://api.github.com"
 });
-
-export default git;

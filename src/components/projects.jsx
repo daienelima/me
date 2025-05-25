@@ -1,144 +1,57 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import git from '../api/git';
+import '../styles/Projects.css'; 
 
 export default class Projects extends Component {
-	//https://api.github.com/users/daienelima/
-	state = {
-		projects: []
-	}
+  state = {
+    projects: []
+  }
 
-	getProjects(){
-		try {
-      git.get("repos").then((response) => {
+  componentDidMount() {
+    this.getProjects();
+  }
+
+  getProjects() {
+    try {
+      git.get("users/daienelima/repos").then((response) => {
         this.setState({ projects: response.data });
-      })
+      });
     } catch (error) {
-      console.log(error);
+      console.error("Erro ao buscar projetos: ", error);
     }
-	}
-
-	componentDidMount(){
-		this.getProjects();
-	}
+  }
 
   render() {
-		const projects = this.state.projects;
-		//const projects = [ {full_name: 'um', id: '1'}, {full_name: 'dois', id: '2'}]
+    const { projects } = this.state;
+
     return (
       <div>
-				<section className="colorlib-work" data-section="projects">
-					<div className="colorlib-narrow-content">
-						<div className="row">
-							<div className="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-								<span className="heading-meta">My Work</span>
-								<h2 className="colorlib-heading animate-box">Recent Projects</h2>
-							</div>
-						</div>
-						<div className="row">
-							{projects.map(repo =>(
-								<div key={repo.id}>
-									<div className="col-xs-4" data-animate-effect="fadeInLeft">
-									<div className="project">
-										<div className="desc">
-											<div className="con">
-												<h3><a href={repo.html_url} target="_blank">{repo.name}</a></h3>
-												<span>Website</span>
-												<p className="icon">
-													<span><a href="#"><i className="icon-eye" /> 100</a></span>
-													<span><a href="#"><i className="icon-heart" /> 49</a></span>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								</div>
-							))}
-						</div>
-
-							
-							{/* <div className="col-md-4 animate-box" data-animate-effect="fadeInRight">
-								<div className="project" style={{backgroundImage: 'url(images/img-2.jpg)'}}>
-									<div className="desc">
-										<div className="con">
-											<h3><a href="work.html">Work 02</a></h3>
-											<span>Animation</span>
-											<p className="icon">
-												<span><a href="#"><i className="icon-share3" /></a></span>
-												<span><a href="#"><i className="icon-eye" /> 100</a></span>
-												<span><a href="#"><i className="icon-heart" /> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div> */}
-							{/* <div className="col-md-4 animate-box" data-animate-effect="fadeInTop">
-								<div className="project" style={{backgroundImage: 'url(images/img-3.jpg)'}}>
-									<div className="desc">
-										<div className="con">
-											<h3><a href="work.html">Work 03</a></h3>
-											<span>Illustration</span>
-											<p className="icon">
-												<span><a href="#"><i className="icon-share3" /></a></span>
-												<span><a href="#"><i className="icon-eye" /> 100</a></span>
-												<span><a href="#"><i className="icon-heart" /> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div> */}
-							{/* <div className="col-md-4 animate-box" data-animate-effect="fadeInBottom">
-								<div className="project" style={{backgroundImage: 'url(images/img-4.jpg)'}}>
-									<div className="desc">
-										<div className="con">
-											<h3><a href="work.html">Work 04</a></h3>
-											<span>Application</span>
-											<p className="icon">
-												<span><a href="#"><i className="icon-share3" /></a></span>
-												<span><a href="#"><i className="icon-eye" /> 100</a></span>
-												<span><a href="#"><i className="icon-heart" /> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div> */}
-							{/* <div className="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-								<div className="project" style={{backgroundImage: 'url(images/img-5.jpg)'}}>
-									<div className="desc">
-										<div className="con">
-											<h3><a href="work.html">Work 05</a></h3>
-											<span>Graphic, Logo</span>
-											<p className="icon">
-												<span><a href="#"><i className="icon-share3" /></a></span>
-												<span><a href="#"><i className="icon-eye" /> 100</a></span>
-												<span><a href="#"><i className="icon-heart" /> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div> */}
-							{/* <div className="col-md-4 animate-box" data-animate-effect="fadeInRight">
-								<div className="project" style={{backgroundImage: 'url(images/img-6.jpg)'}}>
-									<div className="desc">
-										<div className="con">
-											<h3><a href="work.html">Work 06</a></h3>
-											<span>Web Design</span>
-											<p className="icon">
-												<span><a href="#"><i className="icon-share3" /></a></span>
-												<span><a href="#"><i className="icon-eye" /> 100</a></span>
-												<span><a href="#"><i className="icon-heart" /> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div> */}
-						{/* <div className="row">
-							<div className="col-md-12 animate-box">
-								<p><a href="#" className="btn btn-primary btn-lg btn-load-more">Load more <i className="icon-reload" /></a></p>
-							</div>
-						</div> */}
-					</div>
-				</section>
-			</div>
-    )
+        <section className="colorlib-work" data-section="projects">
+          <div className="colorlib-narrow-content">
+            <div className="row">
+              <div className="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <span className="heading-meta">Projetos</span>
+                <h2 className="colorlib-heading">Alguns dos meus trabalhos</h2>
+              </div>
+            </div>
+            <div className="row">
+              {projects.slice(0, 6).map((project) => (
+                <div className="col-md-4 animate-box" key={project.id} data-animate-effect="fadeInLeft">
+                  <div className="project-card minimal">
+                    <h3>{project.name}</h3>
+                    <p>{project.description || 'Sem descrição disponível.'}</p>
+                    <div className="project-meta">
+                      {project.language && <span>{project.language}</span>}
+                      {project.stargazers_count > 0 && <span>⭐ {project.stargazers_count}</span>}
+                    </div>
+                    <a href={project.html_url} target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    );
   }
 }

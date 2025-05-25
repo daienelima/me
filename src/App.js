@@ -5,20 +5,22 @@ import About from './components/about'
 import Timeline from './components/timeline'
 import Projects from './components/projects';
 import Blog from './components/blog';
+import Footer from './components/footer';
 
 class App extends Component {
   render() {
     return (
       <div id="colorlib-page">
         <div id="container-wrap">
-         	<Sidebar></Sidebar>
-				<div id="colorlib-main">
+          <Sidebar></Sidebar>
+          <div id="colorlib-main">
             <About></About>
-            <Timeline></Timeline>
-            <Blog></Blog>
-            {/* <Projects></Projects> */}
+            <Timeline/>
+            <Projects/>
+            <Blog/>
+            <Footer />
           </div>
-      	</div>
+        </div>
       </div>
     );
   }
