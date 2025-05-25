@@ -8,9 +8,9 @@ export default class Sidebar extends Component {
           <nav href="#navbar" className="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i /></nav>
           <aside id="colorlib-aside" className="border js-fullheight">
             <div className="text-center">
-              <div className="author-img" style={{backgroundImage: 'url(images/about.png)'}} />
+              <div className="author-img" style={{ backgroundImage: 'url(images/about.png)' }} />
               <h1 id="colorlib-logo"><a href="index.html">Daiene Lima</a></h1>
-              <span className="position" style={{fontSize: '12px'}}><a>Senior Software Development Engineer</a> Bradesco</span>
+              <span className="position" style={{ fontSize: '12px' }}><a>Senior Software Development Engineer</a> Bradesco</span>
             </div>
             <nav id="colorlib-main-menu" role="navigation" className="navbar">
               <div id="navbar" className="collapse">
@@ -19,14 +19,12 @@ export default class Sidebar extends Component {
                   <li><a href="#timeline" data-nav-section="timeline">Timeline</a></li>
                   <li><a href="#projects">PROJECTS</a></li>
                   <li><a href="#" data-nav-section="blog">Blog</a></li>
-                
+
                 </ul>
               </div>
             </nav>
             <nav id="colorlib-main-menu">
               <ul className="social">
-                <li><a href="https://www.facebook.com/daiene.liima/" target="_blank" rel="noopener noreferrer"><i className="icon-facebook2" /></a></li>
-                <li><a href="https://twitter.com/daieneliima" target="_blank" rel="noopener noreferrer"><i className="icon-twitter2" /></a></li>
                 <li><a href="https://www.instagram.com/daienelima/" target="_blank" rel="noopener noreferrer"><i className="icon-instagram" /></a></li>
                 <li><a href="https://www.linkedin.com/in/daiene-lima/" target="_blank" rel="noopener noreferrer"><i className="icon-linkedin2" /></a></li>
                 <li><a href="https://github.com/daienelima" target="_blank" rel="noopener noreferrer"><i className="icon-github"></i></a></li>
@@ -35,7 +33,7 @@ export default class Sidebar extends Component {
             </nav>
             <div className="colorlib-footer">
               <p><small>
-                  daiene.m17@gmail.com <i className="icon-heart" aria-hidden="true"/>
+                daiene.m17@gmail.com <i className="icon-heart" aria-hidden="true" />
               </small></p>
             </div>
           </aside>
